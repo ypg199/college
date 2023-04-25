@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+ {% if name %}
+<center><h3>Thanks {{ message_name }}!</h3>
+  <br/>
+We received your application and list will be announced shortly...</center><br/><br/><br/>
+{%else%}
+    <!-- latest_coures_area_start  -->
+   <div data-scroll-index='1' class="admission_area">
+        <div class="admission_inner">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-lg-7">
+                        <div class="admission_form">
+                            <h3>Apply for Admission</h3>
+                            <form action="#", method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single_input">
+                                            {{form.fname}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single_input">
+                                            {{form.lname}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single_input">
+                                            {{form.p_no}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single_input">
+                                            {{form.email}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single_input">
+                                            {{form.persontage}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <div class="fieldWrapper">
+                                                {{form.subject.errors}}
+                                                {{form.subject.label_tag}}
+                                                {{ form.subject }}
+                                                </br>
+                                            </div>
+                                    </div>
+                                     <div class="col-md-6">
+                                            <div class="fieldWrapper">
+                                                {{form.deg.errors}}
+                                                {{form.deg.label_tag}}
+                                                {{ form.deg }}
+                                                </br>
+                                            </div>
+                                    </div>
+                                     <div class="col-md-6">
+                                        <div class="single_input">
+                                                {{ form.maths_marks }}
+                                                </br>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-12", align="center">
+                                            <div class="fieldWrapper">
+                                                {{form.documents.errors}}
+                                                {{form.documents.label_tag}}
+                                                {{ form.documents }}
+                                                </br>
+                                            </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="apply_btn">
+                                            <button class="boxed-btn3" type="submit">Apply Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ latest_coures_area_end -->
+{%endif%}
+{% endblock %}
+

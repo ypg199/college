@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- bradcam_area_start  -->
+    <div class="bradcam_area breadcam_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>news details</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bradcam_area_end  -->
+
+    <div class="event_details_area section__padding">
+        <div class="container">
+            {%for i in news%}
+                <div class="row">
+                    <div class="col-lg-8 posts-list">
+                       <div class="single-post">
+                          <div class="feature-img">
+                             <img class="img-fluid" src="{{i.pho.url}}" alt="">
+                          </div>
+                          <div class="blog_details">
+                             <h2>
+                                 {{i.title}}
+                             </h2>
+                             <ul class="blog-info-link mt-3 mb-4">
+                                <li><a href="#"><i class="fa fa-user"></i> {{i.new_type}}</a></li>
+                                <li><a href="#"><i class="flaticon-calendar-1"></i>{{i.post_time}}{{i.post_date}} </a></li>
+                             </ul>
+                             <div class="quote-wrapper">
+                                <div class="quotes">
+                                    {{i.quote}}
+                                </div>
+                             </div>
+                             <p>
+                                 {{i.dis}}
+                             </p>
+                          </div>
+                       </div>
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+
+{% endblock %}

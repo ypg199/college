@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- bradcam_area_start  -->
+    <div class="bradcam_area breadcam_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>event details</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bradcam_area_end  -->
+
+    <div class="event_details_area section__padding">
+        <div class="container">
+            {%for i in event %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="single_event d-flex align-items-center">
+                            <div class="thumb">
+                                <img src="{{i.pho.url}}"alt="">
+                                <div class="date text-center">
+                                    <h4>{{i.event_time}}</h4>
+                                    <span>{{i.event_date}}</span>
+                                </div>
+                            </div>
+                            <div class="event_details_info">
+                                <div class="event_info">
+                                    <a href="#">
+                                        <h4>{{i.title}}</h4>
+                                     </a>
+                                    <p><span> <i class="flaticon-clock"></i> {{i.post_time}} pm</span> <span> <i class="flaticon-calendar"></i> {{i.post_date}}</span> <span> <i class="flaticon-placeholder"></i> {{i.sub}}</span> </p>
+                                </div>
+                                <p class="event_info_text">
+                                    {{i.dis}}
+                                </p>
+                                <a href="{{i.url}}" class="boxed-btn3">Participate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+
+{% endblock %}
